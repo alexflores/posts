@@ -1,0 +1,22 @@
+<p>
+  
+  <h2><%= @post.title %></h2>
+</p>
+
+<p>
+  <%= @post.text %>
+</p>
+
+   <form action="/comments/<%= @post.id  %>" method="post">
+	
+	Comentario:
+	<textarea name="comment[body]"></textarea>
+	<br>
+	<input type="submit" name="commit" value="Guardar">
+  </form>
+
+	<h3><strong>Comentarios:</strong></h3>
+	<% @post.comments.each do |c|%>
+		<p><%= c.body %></p>
+	<% end %>
+	<div class="btn btn-inverse">

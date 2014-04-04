@@ -1,0 +1,31 @@
+<b>Posts</b>
+<br>
+<%= notice %>
+<table>
+   <tr>
+     <th>id</th>
+     <th>Titulo</th>
+     <th>Comentario</th>
+     <th>likes</th>
+   </tr>
+<tr>
+<% @posts.each do |post| %>
+    <td><%= post.id %></td>
+	<td><%= post.title %></td>
+	<td><%= post.text %></td>
+	<td><%= post.like %></td>
+	<td>
+		<a href="/posts/<%= post.id %>">Editar</a>
+		<a href="/posts/delete/<%= post.id %>">Borrar</a>
+		<a href="/posts/like/<%= post.id %>">like</a>
+	</td>
+	</tr>
+
+<% end %>
+
+</table>
+
+<br>
+<a href="/posts/new">Nuevo</a>
+<br>
+<a href="/">Principal</a>

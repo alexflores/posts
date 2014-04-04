@@ -1,0 +1,18 @@
+<h1> El Blog de Alex</h1>
+
+<% @posts.reverse.each do |post| %>
+  <div>
+  	<h2><a href="/posts/show_comment/<%= post.id %>"><%= post.title %></a></h2>
+  	<p><%= post.text %></p><br>
+  	<%= post.like %> <a href="/posts/like_principal/<%= post.id %>">like</a>
+  	<p><small>
+  		<%= post.created_at %>
+  	</small> 
+  	</p>
+  </div>
+ <% end %> 
+
+<br>
+<a href="/posts/new">Nuevo</a>
+<br>
+<a href="/posts">Administrador</a>
