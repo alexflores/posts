@@ -47,6 +47,7 @@ class PostsController < ApplicationController
        @post = Post.find(params[:id])
        @post.title = params[:post][:title]
        @post.text = params[:post][:text]
+        @post.category = params[:post][:category]
 
        if @post.save
        	  redirect_to '/', notice: 'El post ha sido actualizado exitosamente'
