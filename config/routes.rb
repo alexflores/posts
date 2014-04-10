@@ -7,11 +7,13 @@ Posts::Application.routes.draw do
   get '/posts/delete/:id' => 'posts#delete'
   get '/posts/like/:id' => 'posts#like'
   get '/posts/like_principal/:id' => 'posts#like_principal'
+  get '/posts/dislike_principal/:id' => 'posts#dislike'
   get '/posts/show_comment/:id' => 'posts#show_comment'
 
   post '/posts' => 'posts#create'
   post '/posts/:id' => 'posts#update'
   post '/comments/:id' =>'comments#create'
+  post '/posts/search' => 'posts#buscar'
 
   # You can have the root of your site routed with "root"
   root 'principals#index'

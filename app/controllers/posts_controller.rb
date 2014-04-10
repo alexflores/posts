@@ -15,6 +15,7 @@ class PostsController < ApplicationController
        @post = Post.new
        @post.title = params[:post][:title]
        @post.text = params[:post][:text]
+       @post.category = params[:post][:category]
        @post.like = 0
 
        if @post.save
@@ -60,8 +61,33 @@ class PostsController < ApplicationController
      redirect_to '/' 
 	end
 
+  def dislike
+    @post = Post.find(params[:id])
+    if (@post.like==0)
+      @post.like = 0
+      @post.save
+      redirect_to '/'
+    else
+       @post.like = @post.like - 1
+      @post.save
+      redirect_to '/'
+    end
+  end
+
 	def show_comment
 	  @post = Post.find(params[:id])
+    end
+
+
+    def buscar
+     @posts = Post.search(params[:searchbox])
+
+       respond_to do |format|
+
+           format.html 
+
+       end
+
     end
 
 end

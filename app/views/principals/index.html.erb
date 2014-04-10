@@ -5,6 +5,7 @@
   	<h2><a href="/posts/show_comment/<%= post.id %>"><%= post.title %></a></h2>
   	<p><%= post.text %></p><br>
   	<%= post.like %> <a href="/posts/like_principal/<%= post.id %>">like</a>
+  	<%= post.like %> <a href="/posts/dislike_principal/<%= post.id %>">dislike</a>
   	<p><small>
   		<%= post.created_at %>
   	</small> 

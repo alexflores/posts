@@ -1,10 +1,25 @@
 <b>Posts</b>
+
+ <!--<form action="/posts/search" method="post"> 
+    <input type="text" name="post[category]">
+    <input type="submit" value="Buscar">
+ </form>-->
+
+ <%= form_tag({:controller => "posts", :action => "index"}, :method => :get) do %>
+
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+
+    <%= submit_tag "Buscarr", :name => nil %>
+
+<% end %>
+
 <br>
 <%= notice %>
 <table>
    <tr>
      <th>id</th>
      <th>Titulo</th>
+     <th>Categoria</th>
      <th>Comentario</th>
      <th>likes</th>
    </tr>
@@ -12,6 +27,7 @@
 <% @posts.each do |post| %>
     <td><%= post.id %></td>
 	<td><%= post.title %></td>
+	<td><%= post.category %></td>
 	<td><%= post.text %></td>
 	<td><%= post.like %></td>
 	<td>
