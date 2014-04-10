@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		#@posts = Post.all
+
+     @posts = Post.search(params[:searchbox])
+
+       respond_to do |format|
+
+           format.html 
+
+       end
 	end
 
 	def new 
@@ -76,18 +84,6 @@ class PostsController < ApplicationController
 
 	def show_comment
 	  @post = Post.find(params[:id])
-    end
-
-
-    def buscar
-     @posts = Post.search(params[:searchbox])
-
-       respond_to do |format|
-
-           format.html 
-
-       end
-
     end
 
 end
